@@ -23,7 +23,7 @@ node {
 
     stage('backend tests') {
         try {
-            sh "./gradlew test integrationTest -PnodeInstall --no-daemon"
+            sh "./gradlew test integrationTest -PnodeInstall --no-daemon --debug"
         } catch(err) {
             throw err
         } finally {
@@ -33,7 +33,7 @@ node {
 
     stage('frontend tests') {
         try {
-            sh "./gradlew npm_run_test -PnodeInstall --no-daemon"
+            sh "./gradlew npm_run_test -PnodeInstall --no-daemon --debug"
         } catch(err) {
             throw err
         } finally {
